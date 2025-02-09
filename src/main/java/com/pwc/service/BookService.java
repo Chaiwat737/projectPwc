@@ -14,8 +14,9 @@ public interface BookService {
 
     public void deleteBook(Long id) ;
 
-    public Books borrowBook(Long id, String role) ;
+    public Books borrowBook(Long id, String username, String role) ;
 
     public Books returnBook(Long id);
     public Books updateBook(Long id, Books bookDetails);
+    public List<Books> searchBooks(String keyword);
 }

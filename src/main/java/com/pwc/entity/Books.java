@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+
 @Entity
 @Data
 @Builder
@@ -21,6 +24,36 @@ public class Books {
     private String category;
     @Column(name = "is_borrowed")
     private boolean isBorrowed;
+    @Column(name = "borrowedBy")
+    private String BorrowedBy;
+    @Column(name = "borrowDate", nullable = false, updatable = false)
+    private LocalDateTime borrowDate;
+    @Column(name = "returnDate", nullable = false, updatable = false)
+    private LocalDateTime returnDate;
+
+    public String getBorrowedBy() {
+        return BorrowedBy;
+    }
+
+    public void setBorrowedBy(String borrowedBy) {
+        BorrowedBy = borrowedBy;
+    }
+
+    public LocalDateTime getBorrowDate() {
+        return borrowDate;
+    }
+
+    public void setBorrowDate(LocalDateTime borrowDate) {
+        this.borrowDate = borrowDate;
+    }
+
+    public LocalDateTime getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(LocalDateTime returnDate) {
+        this.returnDate = returnDate;
+    }
 
     public int getId() {
         return id;
